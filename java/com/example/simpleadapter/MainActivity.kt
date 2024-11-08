@@ -11,26 +11,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize the ListView
         val listView: ListView = findViewById(R.id.listView)
 
-        // Data to be displayed in the ListView
         val items: List<Map<String, String>> = listOf(
-            mapOf("title" to "Club", "description" to "Barcelona"),
-            mapOf("title" to "Legend : ", "description" to "Cruyff"),
-            mapOf("title" to "Legend : ", "description" to "Maradona"),
-            mapOf("title" to "Legend : ", "description" to "Neymar"),
-            mapOf("title" to "GOAT   : ", "description" to "Messi")
+            mapOf("Key" to "Club", "description" to "Barcelona"),
+            mapOf("Key" to "Legend : ", "description" to "Cruyff"),
+            mapOf("Key" to "Legend : ", "description" to "Maradona"),
+            mapOf("Key" to "SuperStar : ", "description" to "Neymar"),
+            mapOf("Key" to "GOAT   : ", "description" to "Messi")
         )
 
-        // Keys from the map to use in the adapter
-        val from = arrayOf("title", "description")
 
-        // IDs of the views in item_map.xml to bind data to
+        val from = arrayOf("Key", "description")
+
         val to = intArrayOf(R.id.titleTextView, R.id.descriptionTextView)
 
-        // Set up the SimpleAdapter
-        val adapter = SimpleAdapter(this, items, R.layout.item_text, from, to)
+        val adapter = SimpleAdapter(this, items, R.layout.elements, from, to)
         listView.adapter = adapter
     }
 }
